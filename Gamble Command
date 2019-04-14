@@ -16,7 +16,7 @@
       "comparison": "1",
       "value": "1",
       "iftrue": "2",
-      "iftrueVal": "61",
+      "iftrueVal": "59",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Member Data"
@@ -34,28 +34,12 @@
       "name": "Store Command Params"
     },
     {
-      "member": "1",
-      "varName": "",
-      "info": "2",
-      "storage": "1",
-      "varName2": "username",
-      "name": "Store Member Info"
-    },
-    {
-      "member": "1",
-      "varName": "",
-      "info": "16",
-      "storage": "1",
-      "varName2": "avatar",
-      "name": "Store Member Info"
-    },
-    {
       "title": "Gamble Action",
-      "author": "${tempVars(\"username\")}",
-      "color": "#00ff00",
+      "author": "${member.displayName}",
+      "color": "FFA500",
       "timestamp": "true",
       "url": "",
-      "authorIcon": "${tempVars(\"avatar\")}",
+      "authorIcon": "${msg.author.displayAvatarURL}",
       "imageUrl": "",
       "thumbUrl": "",
       "storage": "1",
@@ -68,7 +52,7 @@
       "comparison": "5",
       "value": "'.'",
       "iftrue": "2",
-      "iftrueVal": "55",
+      "iftrueVal": "53",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -101,7 +85,7 @@
       "comparison": "1",
       "value": "0",
       "iftrue": "2",
-      "iftrueVal": "57",
+      "iftrueVal": "55",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -117,7 +101,7 @@
       "comparison": "3",
       "value": "1",
       "iftrue": "2",
-      "iftrueVal": "55",
+      "iftrueVal": "53",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -152,7 +136,7 @@
       "iftrue": "0",
       "iftrueVal": "44",
       "iffalse": "2",
-      "iffalseVal": "59",
+      "iffalseVal": "57",
       "name": "Check Member Data"
     },
     {
@@ -162,7 +146,7 @@
     },
     {
       "info": "1",
-      "find": "Premium",
+      "find": "💲Gambler💲",
       "storage": "1",
       "varName": "gambler",
       "name": "Find Role"
@@ -173,7 +157,7 @@
       "role": "3",
       "varName2": "gambler",
       "iftrue": "2",
-      "iftrueVal": "38",
+      "iftrueVal": "36",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check If Member has Role"
