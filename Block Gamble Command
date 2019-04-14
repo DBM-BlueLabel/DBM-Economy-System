@@ -1,0 +1,77 @@
+{
+  "name": "blockgamble",
+  "permissions": "KICK_MEMBERS",
+  "restriction": "1",
+  "_id": "SQbxZ",
+  "actions": [
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "9",
+      "name": "Check Parameters"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "gambleable",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "gambleable",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "gambleable",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Member Data"
+    },
+    {
+      "channel": "1",
+      "varName": "",
+      "message": "This player is already in gamble block.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "gambleable",
+      "changeType": "0",
+      "value": "1",
+      "name": "Control Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member} has been blocked ${mentionedUser} from the gamble action.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: I can't find this member.\nIf you mentioned two members, please mention one.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}

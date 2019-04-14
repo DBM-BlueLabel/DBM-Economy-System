@@ -1,0 +1,205 @@
+{
+  "name": "transfer",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "lXBhT",
+  "actions": [
+    {
+      "info": "2",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "receiver",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "amount",
+      "name": "Store Command Params"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "mentionid",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "userid",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "19",
+      "name": "Check Parameters"
+    },
+    {
+      "storage": "1",
+      "varName": "mentionid",
+      "comparison": "1",
+      "value": "tempVars(\"userid\")",
+      "iftrue": "2",
+      "iftrueVal": "25",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "amount",
+      "comparison": "5",
+      "value": "\".\"",
+      "iftrue": "2",
+      "iftrueVal": "23",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "points",
+      "comparison": "1",
+      "value": "tempVars(\"amount\")",
+      "iftrue": "2",
+      "iftrueVal": "11",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "points",
+      "comparison": "4",
+      "value": "tempVars(\"amount\")",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "21",
+      "name": "Check Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "points",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "authorpoints",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "points",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "mentionpoints",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"authorpoints\")}",
+      "info": "1",
+      "SecondNumber": "${tempVars(\"amount\")}",
+      "storage": "1",
+      "varName": "sender",
+      "name": "Basic Math Operation"
+    },
+    {
+      "FirstNumber": "${tempVars(\"amount\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"mentionpoints\")}",
+      "storage": "1",
+      "varName": "mentionreceiver",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "points",
+      "changeType": "0",
+      "value": "tempVars(\"mentionreceiver\")",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "points",
+      "changeType": "0",
+      "value": "tempVars(\"sender\")",
+      "name": "Control Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member} send **${tempVars(\"amount\")}** cash to ${mentionedUser}.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, You must to mention member.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, You dont have this amount of cash.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, You must to type a vaild number.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, You can't send points to yourself.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}

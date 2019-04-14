@@ -1,0 +1,41 @@
+{
+  "name": "PointsSystem-event",
+  "temp": "message",
+  "event-type": "2",
+  "_id": "XEBZK",
+  "actions": [
+    {
+      "message": "1",
+      "varName": "message",
+      "info": "3",
+      "storage": "1",
+      "varName2": "message-author",
+      "name": "Store Message Info"
+    },
+    {
+      "member": "2",
+      "varName": "message-author",
+      "dataName": "cash",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "member-cash",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"member-cash\")}",
+      "info": "0",
+      "SecondNumber": "1",
+      "storage": "1",
+      "varName": "cash-receive",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "2",
+      "varName": "message-author",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"cash-receive\")",
+      "name": "Control Member Data"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "unblockgamble",
+  "permissions": "KICK_MEMBERS",
+  "restriction": "1",
+  "_id": "SQbxZ",
+  "actions": [
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "gambleable",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "gambleable",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "gambleable",
+      "comparison": "1",
+      "value": "0",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Member Data"
+    },
+    {
+      "channel": "1",
+      "varName": "",
+      "message": "This player is not in gamble block.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "gambleable",
+      "changeType": "0",
+      "value": "0",
+      "name": "Control Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member} has been unblocked ${mentionedUser} from the gamble action.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}

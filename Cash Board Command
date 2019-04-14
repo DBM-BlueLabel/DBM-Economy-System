@@ -1,0 +1,118 @@
+{
+  "name": "cashboard",
+  "permissions": "NONE",
+  "restriction": "1",
+  "actions": [
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "limit",
+      "name": "Store Command Params"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "12",
+      "name": "Check Parameters"
+    },
+    {
+      "storage": "1",
+      "varName": "limit",
+      "comparison": "4",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "12",
+      "name": "Check Variable"
+    },
+    {
+      "debu": "1",
+      "numbefst2": ")",
+      "numbefstselect": "2",
+      "sort": "1",
+      "start": "username",
+      "middle": "-",
+      "end": "result",
+      "getresults": "${tempVars(\"limit\")}",
+      "dataName": "cash",
+      "varName2": "board",
+      "storage": "1",
+      "name": "Store Member Data List"
+    },
+    {
+      "title": "",
+      "author": "Point´s Leaderboard",
+      "color": "#FDB958",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "https://i.imgur.com/rI3L1V0.png",
+      "imageUrl": "",
+      "thumbUrl": "http://icons.iconarchive.com/icons/designcontest/ecommerce-business/256/money-icon.png",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Top ${tempVars(\"limit\")}:",
+      "message": "${tempVars(\"board\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "1",
+      "varName3": "embed-obj",
+      "name": "Send Embed Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "embed-obj",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "ERROR: You must to choose limit.",
+      "storage": "1",
+      "varName2": "error-message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "3",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "error-message",
+      "name": "Delete Message"
+    }
+  ],
+  "_id": "pchPh"
+}

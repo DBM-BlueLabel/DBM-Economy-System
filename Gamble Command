@@ -1,0 +1,450 @@
+{
+  "name": "gamble",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "aAsql",
+  "actions": [
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "gambleable",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "2",
+      "iftrueVal": "61",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Data"
+    },
+    {
+      "comment": ">⎯⎯⎯[Check if he didn't blocked from the gamble]⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "amount",
+      "name": "Store Command Params"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "username",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "16",
+      "storage": "1",
+      "varName2": "avatar",
+      "name": "Store Member Info"
+    },
+    {
+      "title": "Gamble Action",
+      "author": "${tempVars(\"username\")}",
+      "color": "#00ff00",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "${tempVars(\"avatar\")}",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "amount",
+      "comparison": "5",
+      "value": "'.'",
+      "iftrue": "2",
+      "iftrueVal": "55",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "currentcash",
+      "name": "Store Member Data"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Check if the amount is number]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "slice": "${tempVars(\"amount\")}",
+      "startingNumber": "0",
+      "sliceLength": "1",
+      "storage": "1",
+      "varName": "numberone",
+      "name": "Slice"
+    },
+    {
+      "storage": "1",
+      "varName": "numberone",
+      "comparison": "1",
+      "value": "0",
+      "iftrue": "2",
+      "iftrueVal": "57",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Check if the amount start with 0]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "storage": "1",
+      "varName": "amount",
+      "comparison": "3",
+      "value": "1",
+      "iftrue": "2",
+      "iftrueVal": "55",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Check if the amount is less than 1]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "storage": "1",
+      "varName": "amount",
+      "comparison": "1",
+      "value": "tempVars(\"currentcash\")",
+      "iftrue": "3",
+      "iftrueVal": "3",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Check if member has the same cash]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "comparison": "4",
+      "value": "tempVars(\"amount\")",
+      "iftrue": "0",
+      "iftrueVal": "44",
+      "iffalse": "2",
+      "iffalseVal": "59",
+      "name": "Check Member Data"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Check if member has the cash]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "info": "1",
+      "find": "Premium",
+      "storage": "1",
+      "varName": "gambler",
+      "name": "Find Role"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "role": "3",
+      "varName2": "gambler",
+      "iftrue": "2",
+      "iftrueVal": "38",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member has Role"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Check if member have gambler role]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "storage": "1",
+      "varName": "randomnumber",
+      "min": "1",
+      "max": "100",
+      "name": "Generate Random Number"
+    },
+    {
+      "storage": "1",
+      "varName": "randomnumber",
+      "comparison": "3",
+      "value": "40",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "7",
+      "name": "Check Variable"
+    },
+    {
+      "FirstNumber": "${tempVars(\"currentcash\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"amount\")}",
+      "storage": "1",
+      "varName": "win",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "${member} gambled on ${tempVars(\"amount\")} cash and Won!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Current cash balance: ${tempVars(\"win\")}",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "gamblingroom",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"win\")",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Skip here if lose]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "FirstNumber": "${tempVars(\"currentcash\")}",
+      "info": "1",
+      "SecondNumber": "${tempVars(\"amount\")}",
+      "storage": "1",
+      "varName": "lose",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "${member} gambled on ${tempVars(\"amount\")} cash and Lose!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Current cash balance: ${tempVars(\"lose\")}",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "gamblingroom",
+      "storage3": "0",
+      "varName3": "gamblingroom",
+      "name": "Send Embed Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"lose\")",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Skip here if he is gambler]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "storage": "1",
+      "varName": "randomnumber",
+      "min": "1",
+      "max": "100",
+      "name": "Generate Random Number"
+    },
+    {
+      "storage": "1",
+      "varName": "randomnumber",
+      "comparison": "3",
+      "value": "60",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "7",
+      "name": "Check Variable"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Skip here if win]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "FirstNumber": "${tempVars(\"currentcash\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"amount\")}",
+      "storage": "1",
+      "varName": "win",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "${member} gambled on ${tempVars(\"amount\")} cash and Won!(+10% chance)",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Current cash balance: ${tempVars(\"win\")}",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "gamblingroom",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"win\")",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Skip here if lose]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "FirstNumber": "${tempVars(\"currentcash\")}",
+      "info": "1",
+      "SecondNumber": "${tempVars(\"amount\")}",
+      "storage": "1",
+      "varName": "lose",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "${member} gambled on ${tempVars(\"amount\")} cash and Lose!(+10% chance)",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Current cash balance: ${tempVars(\"lose\")}",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "gamblingroom",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"lose\")",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member} you must to type a vaild number.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The gamble amount can't start with the number 0.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, You dont have this amount of cash.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you've been blocked from the gamble action.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}
