@@ -46,7 +46,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "2",
-      "iffalseVal": "19",
+      "iffalseVal": "31",
       "name": "Check Parameters"
     },
     {
@@ -55,7 +55,7 @@
       "comparison": "1",
       "value": "tempVars(\"userid\")",
       "iftrue": "2",
-      "iftrueVal": "25",
+      "iftrueVal": "37",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -66,7 +66,7 @@
       "comparison": "5",
       "value": "\".\"",
       "iftrue": "2",
-      "iftrueVal": "23",
+      "iftrueVal": "35",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -74,11 +74,11 @@
     {
       "member": "1",
       "varName": "",
-      "dataName": "points",
+      "dataName": "cash",
       "comparison": "1",
       "value": "tempVars(\"amount\")",
-      "iftrue": "2",
-      "iftrueVal": "11",
+      "iftrue": "3",
+      "iftrueVal": "1",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Member Data"
@@ -86,35 +86,103 @@
     {
       "member": "1",
       "varName": "",
-      "dataName": "points",
+      "dataName": "cash",
       "comparison": "4",
       "value": "tempVars(\"amount\")",
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "2",
-      "iffalseVal": "21",
+      "iffalseVal": "33",
       "name": "Check Member Data"
     },
     {
       "member": "1",
       "varName": "",
-      "dataName": "points",
+      "dataName": "cash",
       "defaultVal": "0",
       "storage": "1",
-      "varName2": "authorpoints",
+      "varName2": "authorcash",
       "name": "Store Member Data"
     },
     {
       "member": "0",
       "varName": "",
-      "dataName": "points",
+      "dataName": "cash",
       "defaultVal": "0",
       "storage": "1",
-      "varName2": "mentionpoints",
+      "varName2": "mentioncash",
       "name": "Store Member Data"
     },
     {
-      "FirstNumber": "${tempVars(\"authorpoints\")}",
+      "info": "1",
+      "find": "Premium",
+      "storage": "1",
+      "varName": "gambler",
+      "name": "Find Role"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "role": "3",
+      "varName2": "gambler",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member has Role"
+    },
+    {
+      "FirstNumber": "${tempVars(\"amount\")}",
+      "info": "2",
+      "SecondNumber": "0.9",
+      "storage": "1",
+      "varName": "Tax-result",
+      "name": "Basic Math Operation"
+    },
+    {
+      "FirstNumber": "${Math.floor(tempVars(\"Tax-result\"))}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"mentioncash\")}",
+      "storage": "1",
+      "varName": "mentionreceiver",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "Tax",
+      "changeType": "0",
+      "value": "\"10%\"",
+      "name": "Control Variable"
+    },
+    {
+      "count": "3",
+      "name": "Skip Actions"
+    },
+    {
+      "storage": "1",
+      "varName": "Tax",
+      "changeType": "0",
+      "value": "\"0% (Premium)\"",
+      "name": "Control Variable"
+    },
+    {
+      "FirstNumber": "${tempVars(\"amount\")}",
+      "info": "2",
+      "SecondNumber": "1.0",
+      "storage": "1",
+      "varName": "Tax-result",
+      "name": "Basic Math Operation"
+    },
+    {
+      "FirstNumber": "${tempVars(\"amount\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"mentioncash\")}",
+      "storage": "1",
+      "varName": "mentionreceiver",
+      "name": "Basic Math Operation"
+    },
+    {
+      "FirstNumber": "${tempVars(\"authorcash\")}",
       "info": "1",
       "SecondNumber": "${tempVars(\"amount\")}",
       "storage": "1",
@@ -122,17 +190,9 @@
       "name": "Basic Math Operation"
     },
     {
-      "FirstNumber": "${tempVars(\"amount\")}",
-      "info": "0",
-      "SecondNumber": "${tempVars(\"mentionpoints\")}",
-      "storage": "1",
-      "varName": "mentionreceiver",
-      "name": "Basic Math Operation"
-    },
-    {
       "member": "0",
       "varName": "",
-      "dataName": "points",
+      "dataName": "cash",
       "changeType": "0",
       "value": "tempVars(\"mentionreceiver\")",
       "name": "Control Member Data"
@@ -140,20 +200,62 @@
     {
       "member": "1",
       "varName": "",
-      "dataName": "points",
+      "dataName": "cash",
       "changeType": "0",
       "value": "tempVars(\"sender\")",
       "name": "Control Member Data"
     },
     {
+      "title": "Transfer Action",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "transfer-embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "transfer-embed",
+      "message": "${member} send **${tempVars(\"amount\")} cash** to ${mentionedUser}.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "transfer-embed",
+      "fieldName": "Cash Transfered",
+      "message": "${tempVars(\"amount\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "transfer-embed",
+      "fieldName": "Bank's Tax",
+      "message": "${tempVars(\"Tax\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "transfer-embed",
+      "fieldName": "Total Transfered",
+      "message": "${Math.floor(tempVars(\"Tax-result\"))}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "transfer-embed",
       "channel": "0",
-      "varName": "",
-      "message": "${member} send **${tempVars(\"amount\")}** cash to ${mentionedUser}.",
-      "storage": "0",
       "varName2": "",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Send Message"
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
     },
     {
       "name": "End Action Sequence"
@@ -196,7 +298,7 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "${member}, You can't send points to yourself.",
+      "message": "${member}, You can't send cash to yourself.",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
