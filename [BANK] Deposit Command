@@ -1,0 +1,199 @@
+{
+  "name": "deposit",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "vZBtg",
+  "actions": [
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "amount",
+      "name": "Store Command Params"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "member-cash",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "bank",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "member-bank",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "amount",
+      "comparison": "5",
+      "value": "'.'",
+      "iftrue": "2",
+      "iftrueVal": "24",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Check if he typed valid number]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "comparison": "1",
+      "value": "tempVars(\"amount\")",
+      "iftrue": "3",
+      "iftrueVal": "3",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Data"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Check if he has the money]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "comparison": "4",
+      "value": "tempVars(\"amount\")",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "22",
+      "name": "Check Member Data"
+    },
+    {
+      "comment": ">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[Check if he has the money]⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "FirstNumber": "${tempVars(\"member-cash\")}",
+      "info": "1",
+      "SecondNumber": "${tempVars(\"amount\")}",
+      "storage": "1",
+      "varName": "cash-left",
+      "name": "Basic Math Operation"
+    },
+    {
+      "FirstNumber": "${tempVars(\"member-bank\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"amount\")}",
+      "storage": "1",
+      "varName": "bank-amount",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"cash-left\")",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "bank",
+      "changeType": "0",
+      "value": "tempVars(\"bank-amount\")",
+      "name": "Control Member Data"
+    },
+    {
+      "title": "Bank Action",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "BankAction",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "BankAction",
+      "message": "${member} Deposited **${tempVars(\"amount\")} cash** to the bank.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "BankAction",
+      "fieldName": "Cash",
+      "message": "₪${tempVars(\"cash-left\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "BankAction",
+      "fieldName": "Bank",
+      "message": "₪${tempVars(\"bank-amount\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "FirstNumber": "${tempVars(\"cash-left\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"bank-amount\")}",
+      "storage": "1",
+      "varName": "membertotal",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "BankAction",
+      "fieldName": "Total",
+      "message": "₪${tempVars(\"membertotal\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "BankAction",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, You dont have this amount of cash.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, You must to type a vaild number.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}
