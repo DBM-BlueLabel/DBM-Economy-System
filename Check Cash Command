@@ -19,6 +19,15 @@
       "name": "Store Member Data"
     },
     {
+      "member": "0",
+      "varName": "",
+      "dataName": "bank",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "mentionedbank",
+      "name": "Store Member Data"
+    },
+    {
       "member": "1",
       "varName": "",
       "dataName": "cash",
@@ -28,11 +37,20 @@
       "name": "Store Member Data"
     },
     {
+      "member": "1",
+      "varName": "",
+      "dataName": "bank",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "memberbank",
+      "name": "Store Member Data"
+    },
+    {
       "condition": "1",
       "comparison": "2",
       "value": "1",
-      "iftrue": "3",
-      "iftrueVal": "7",
+      "iftrue": "2",
+      "iftrueVal": "27",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Parameters"
@@ -43,42 +61,157 @@
       "value": "0",
       "iftrue": "0",
       "iftrueVal": "",
-      "iffalse": "3",
-      "iffalseVal": "4",
+      "iffalse": "2",
+      "iffalseVal": "18",
       "name": "Check Parameters"
     },
     {
-      "channel": "0",
+      "member": "1",
       "varName": "",
-      "message": "Hi ${member}, Your points balance is: ${tempVars(\"membercash\")}",
+      "info": "3",
       "storage": "1",
-      "varName2": "showpoints",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Send Message"
+      "varName2": "AuthorName",
+      "name": "Store Member Info"
     },
     {
-      "time": "3",
-      "measurement": "1",
-      "name": "Wait"
+      "member": "1",
+      "varName": "",
+      "info": "16",
+      "storage": "1",
+      "varName2": "AuthorUrl",
+      "name": "Store Member Info"
+    },
+    {
+      "title": "",
+      "author": "${tempVars(\"AuthorName\")}",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "${tempVars(\"AuthorUrl\")}",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "AuthorMoney",
+      "name": "Create Embed Message"
     },
     {
       "storage": "1",
-      "varName": "showpoints",
-      "name": "Delete Message"
+      "varName": "AuthorMoney",
+      "fieldName": "Cash",
+      "message": "${tempVars(\"membercash\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "AuthorMoney",
+      "fieldName": "Bank",
+      "message": "${tempVars(\"memberbank\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "FirstNumber": "${tempVars(\"membercash\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"memberbank\")}",
+      "storage": "1",
+      "varName": "membertotal",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "AuthorMoney",
+      "fieldName": "Total",
+      "message": "${tempVars(\"membertotal\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "AuthorMoney",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
     },
     {
       "name": "End Action Sequence"
     },
     {
-      "channel": "0",
+      "comment": "Mention Money",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "member": "0",
       "varName": "",
-      "message": "Hi ${member}, ${mentionedUser} points balance is: ${tempVars(\"mentionedcash\")}",
-      "storage": "0",
+      "info": "3",
+      "storage": "1",
+      "varName2": "MentionName",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "16",
+      "storage": "1",
+      "varName2": "MentionUrl",
+      "name": "Store Member Info"
+    },
+    {
+      "title": "",
+      "author": "${tempVars(\"MentionName\")}",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "${tempVars(\"MentionUrl\")}",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "AuthorMoney",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "AuthorMoney",
+      "fieldName": "Cash",
+      "message": "${tempVars(\"mentionedcash\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "AuthorMoney",
+      "fieldName": "Bank",
+      "message": "${tempVars(\"mentionedbank\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "FirstNumber": "${tempVars(\"mentionedcash\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"mentionedbank\")}",
+      "storage": "1",
+      "varName": "mentiontotal",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "AuthorMoney",
+      "fieldName": "Total",
+      "message": "${tempVars(\"mentiontotal\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "AuthorMoney",
+      "channel": "0",
       "varName2": "",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Send Message"
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
     },
     {
       "name": "End Action Sequence"
