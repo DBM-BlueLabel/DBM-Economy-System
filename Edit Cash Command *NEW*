@@ -109,7 +109,7 @@
       "name": "Check Variable"
     },
     {
-      "channel": "5",
+      "channel": "0",
       "varName": "logs",
       "message": "To add cash type after the mention: `add`\nTo remove cash type after the mention: `remove`\nTo set cash type after the mention: `set`",
       "storage": "0",
