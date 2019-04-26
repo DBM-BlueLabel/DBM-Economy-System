@@ -1,0 +1,244 @@
+{
+  "name": "editcash",
+  "permissions": "BAN_MEMBERS",
+  "restriction": "1",
+  "_id": "fbjKd",
+  "actions": [
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "info": "2",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "member",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "type",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "3",
+      "storage": "1",
+      "varName": "amount",
+      "name": "Store Command Params"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "**Wrong Format:**\n!editcash <@Member> <set|remove|add> <amount>",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "cash",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "money",
+      "name": "Store Member Data"
+    },
+    {
+      "title": "Edit Cash Action",
+      "author": "",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "editcash-embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "type",
+      "comparison": "1",
+      "value": "\"add\"",
+      "iftrue": "2",
+      "iftrueVal": "15",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "type",
+      "comparison": "1",
+      "value": "\"remove\"",
+      "iftrue": "2",
+      "iftrueVal": "20",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "type",
+      "comparison": "1",
+      "value": "\"set\"",
+      "iftrue": "2",
+      "iftrueVal": "24",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "5",
+      "varName": "logs",
+      "message": "To add cash type after the mention: `add`\nTo remove cash type after the mention: `remove`\nTo set cash type after the mention: `set`",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "FirstNumber": "${tempVars(\"money\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"amount\")}",
+      "storage": "1",
+      "varName": "amount-add",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"amount-add\")",
+      "name": "Control Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "editcash-embed",
+      "message": "${member} Added ${tempVars(\"amount\")} cash to ${mentionedUser}.",
+      "name": "Set Embed Description"
+    },
+    {
+      "call": "26",
+      "name": "Jump to Action"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"money\") - tempVars(\"amount\")",
+      "name": "Control Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "editcash-embed",
+      "message": "${member} Removed ${tempVars(\"amount\")} cash to ${mentionedUser}.",
+      "name": "Set Embed Description"
+    },
+    {
+      "call": "26",
+      "name": "Jump to Action"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"amount\")",
+      "name": "Control Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "editcash-embed",
+      "message": "${member} Setted ${tempVars(\"amount\")} cash to ${mentionedUser}.",
+      "name": "Set Embed Description"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "cash",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "mentioned-cash",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "editcash-embed",
+      "fieldName": "Action Type",
+      "message": "${tempVars(\"type\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "editcash-embed",
+      "fieldName": "Amount",
+      "message": "${tempVars(\"amount\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "editcash-embed",
+      "fieldName": "Total Cash",
+      "message": "${tempVars(\"mentioned-cash\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "editcash-embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "logs",
+      "message": "${member} You must to type a valid number.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
