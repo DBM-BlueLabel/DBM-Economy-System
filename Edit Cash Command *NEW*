@@ -110,7 +110,7 @@
     },
     {
       "channel": "0",
-      "varName": "logs",
+      "varName": "",
       "message": "To add cash type after the mention: `add`\nTo remove cash type after the mention: `remove`\nTo set cash type after the mention: `set`",
       "storage": "0",
       "varName2": "",
@@ -232,7 +232,7 @@
     },
     {
       "channel": "0",
-      "varName": "logs",
+      "varName": "",
       "message": "${member} You must to type a valid number.",
       "storage": "0",
       "varName2": "",
