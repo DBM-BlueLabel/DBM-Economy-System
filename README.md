@@ -21,5 +21,5 @@
 <b>↦ Cash Leader Board:</b>
 <br>By typing !moneyboard you can see who is the richest man in town.
 
-<b>↦ **NEW** Edit Cash:</b>
+<b>↦ [NEW] Edit Cash:</b>
 <br>By typing !editcash <@MentionMember> <set|remove|add> <amount> you can edit the member's cash amount.
