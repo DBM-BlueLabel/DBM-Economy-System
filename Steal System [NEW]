@@ -1,0 +1,491 @@
+{
+  "name": "steal",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "txABf",
+  "actions": [
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "56",
+      "name": "Check Parameters"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "mentioned-id",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "1",
+      "varName": "mentioned-id",
+      "comparison": "1",
+      "value": "${msg.author.id}",
+      "iftrue": "2",
+      "iftrueVal": "54",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "member-cash",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "comparison": "4",
+      "value": "10000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "58",
+      "name": "Check Member Data"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "cash",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "mentioned-cash",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "cash",
+      "comparison": "4",
+      "value": "500",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "60",
+      "name": "Check Member Data"
+    },
+    {
+      "title": "Thief Alert",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "thief-alert",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "thief-alert",
+      "message": "You're going to pay 10000 cash to thief.\nAre you sure?",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "thief-alert",
+      "message": "✅=yes, ❌=no",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "thief-alert",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "1",
+      "varName3": "message",
+      "name": "Send Embed Message"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "message",
+      "emoji": "4",
+      "varName2": "✅",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "storage": "1",
+      "varName": "message",
+      "emoji": "4",
+      "varName2": "❌",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "storage": "1",
+      "varName": "message",
+      "filter": "user.id === '${msg.author.id}'",
+      "max": "1",
+      "time": "60000",
+      "maxEmojis": "",
+      "maxUsers": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "storage2": "1",
+      "varName2": "reaction-list",
+      "name": "Await Reaction Call Action"
+    },
+    {
+      "message": "1",
+      "varName": "message",
+      "info": "1",
+      "find": "❌",
+      "storage": "1",
+      "varName2": "reaction-x",
+      "name": "Find Reaction"
+    },
+    {
+      "message": "1",
+      "varName": "message",
+      "info": "1",
+      "find": "✅",
+      "storage": "1",
+      "varName2": "reaction-v",
+      "name": "Find Reaction"
+    },
+    {
+      "reaction": "1",
+      "varName": "reaction-v",
+      "info": "4",
+      "storage": "1",
+      "varName2": "count-v",
+      "name": "Store Reaction Info"
+    },
+    {
+      "reaction": "1",
+      "varName": "reaction-x",
+      "info": "4",
+      "storage": "1",
+      "varName2": "count-x",
+      "name": "Store Reaction Info"
+    },
+    {
+      "storage": "1",
+      "varName": "count-x",
+      "comparison": "4",
+      "value": "1",
+      "iftrue": "2",
+      "iftrueVal": "46",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "count-v",
+      "comparison": "4",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "50",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "chance",
+      "min": "1",
+      "max": "100",
+      "name": "Generate Random Number"
+    },
+    {
+      "storage": "1",
+      "varName": "cash-stealed",
+      "min": "1",
+      "max": "${tempVars(\"mentioned-cash\")}",
+      "name": "Generate Random Number"
+    },
+    {
+      "info": "1",
+      "find": "Premium",
+      "storage": "1",
+      "varName": "premium-role",
+      "name": "Find Role"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "role": "3",
+      "varName2": "premium-role",
+      "iftrue": "3",
+      "iftrueVal": "5",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member has Role"
+    },
+    {
+      "comment": "Not Premium",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "storage": "1",
+      "varName": "chance",
+      "comparison": "3",
+      "value": "30",
+      "iftrue": "3",
+      "iftrueVal": "6",
+      "iffalse": "2",
+      "iffalseVal": "45",
+      "name": "Check Variable"
+    },
+    {
+      "FirstNumber": "${tempVars(\"cash-stealed\")}",
+      "info": "2",
+      "SecondNumber": "0.7",
+      "storage": "1",
+      "varName": "total-cash",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "thief-cut",
+      "changeType": "0",
+      "value": "\"30%\"",
+      "name": "Control Variable"
+    },
+    {
+      "comment": "Premium",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "storage": "1",
+      "varName": "chance",
+      "comparison": "3",
+      "value": "40",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "45",
+      "name": "Check Variable"
+    },
+    {
+      "FirstNumber": "${tempVars(\"cash-stealed\")}",
+      "info": "2",
+      "SecondNumber": "0.9",
+      "storage": "1",
+      "varName": "total-cash",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "thief-cut",
+      "changeType": "0",
+      "value": "\"10% (Premium)\"",
+      "name": "Control Variable"
+    },
+    {
+      "title": "Steal Cash Action",
+      "author": "Thief",
+      "color": "00ff00",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "https://cdn3.iconfinder.com/data/icons/glypho-computers-andother-tech/64/user-spy-thief-glasses-hat-512.png",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "success-embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "success-embed",
+      "message": "Sucess!\n${member} steal **${tempVars(\"cash-stealed\")} cash** from ${mentionedUser}.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "success-embed",
+      "fieldName": "Cash stealed",
+      "message": "${tempVars(\"cash-stealed\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "success-embed",
+      "fieldName": "Thief Cut",
+      "message": "${tempVars(\"thief-cut\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "success-embed",
+      "fieldName": "Total Cash",
+      "message": "${Math.floor(tempVars(\"total-cash\"))}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "success-embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "1",
+      "value": "-tempVars(\"cash-stealed\")",
+      "name": "Control Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"member-cash\")}",
+      "info": "0",
+      "SecondNumber": "${Math.floor(tempVars(\"total-cash\"))}",
+      "storage": "1",
+      "varName": "cash-received",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"cash-received\")",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "comment": "Skip here if thief fail",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "title": "Steal Cash Action",
+      "author": "Thief",
+      "color": "ff0000",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "https://cdn3.iconfinder.com/data/icons/glypho-computers-andother-tech/64/user-spy-thief-glasses-hat-512.png",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "fail-embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "fail-embed",
+      "message": "${member} tried to steal cash from ${mentionedUser} but the thief was caught by the police.\n${member} lost 10000 cash.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "fail-embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "1",
+      "value": "-10000",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "comment": "Skip here if he marks ❌",
+      "color": "#0000ff",
+      "name": "Comment"
+    },
+    {
+      "storage": "1",
+      "varName": "message",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, You can't steal your own cash.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, You must to mention member to steal from him cash.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, You need at least 10000 cash for the thief pay.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, ${mentionedUser} don't have enough money for that action.\nminimum 500 cash.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
