@@ -1,0 +1,215 @@
+{
+  "name": "jackpot",
+  "permissions": "BAN_MEMBERS",
+  "restriction": "1",
+  "_id": "txABf",
+  "actions": [
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "prize",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "entry-costs",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "3",
+      "storage": "1",
+      "varName": "max-players",
+      "name": "Store Command Params"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "3",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "24",
+      "name": "Check Parameters"
+    },
+    {
+      "storage": "1",
+      "varName": "prize",
+      "comparison": "4",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "26",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "entry-costs",
+      "comparison": "4",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "26",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "max-players",
+      "comparison": "4",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "26",
+      "name": "Check Variable"
+    },
+    {
+      "title": "Jackpot Started!",
+      "author": "Jackpot",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "https://image.flaticon.com/icons/png/512/536/536101.png",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "jackpot-embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "jackpot-embed",
+      "message": "Jackpot has been started by the moderators.\n\n**WARNING:** If you will remove your reaction after join, you won't count in the bot's players list and you won't get any refund.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "jackpot-embed",
+      "fieldName": "Prize",
+      "message": "${tempVars(\"prize\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "jackpot-embed",
+      "fieldName": "Entrance Ticket",
+      "message": "${tempVars(\"entry-costs\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "jackpot-embed",
+      "fieldName": "Max Players to join",
+      "message": "${tempVars(\"max-players\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "jackpot-embed",
+      "message": "💵=join",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "jackpot-embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "1",
+      "varName3": "message",
+      "name": "Send Embed Message"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "message",
+      "emoji": "4",
+      "varName2": "💵",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "message": "1",
+      "varName": "message",
+      "info": "1",
+      "storage": "1",
+      "varName2": "message-id",
+      "name": "Store Message Info"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "jackpot-message",
+      "changeType": "0",
+      "value": "tempVars(\"message-id\")",
+      "name": "Control Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "jackpot-entry",
+      "changeType": "0",
+      "value": "tempVars(\"entry-costs\")",
+      "name": "Control Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "jackpot-prize",
+      "changeType": "0",
+      "value": "tempVars(\"prize\")",
+      "name": "Control Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "jackpot-max-players",
+      "changeType": "0",
+      "value": "tempVars(\"max-players\")",
+      "name": "Control Server Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "**Wrong Format:**\n[Prefix]jackpot <Prize Amount> <Entrance Cost> <Max Players to end>",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please, Don't try to be stupid.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
