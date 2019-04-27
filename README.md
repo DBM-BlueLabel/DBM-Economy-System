@@ -5,7 +5,7 @@
 <br><b>↦ Cash System:</b>
 <br>Every message that member sends in the server he receives 1 cash.
 <br>He can check how much cash he has by typing: !cash.
-<br>Also, he can check how much cash a member has by typing: !cash <@MentionMember>. Members can send cash to other members by the command: `!transfer <@MentionMember> <Amount>`. 
+<br>Also, he can check how much cash a member has by typing: `!cash <@MentionMember>`. Members can send cash to other members by the command: `!transfer <@MentionMember> <Amount>`. 
 <br>Futhermore, a member can send another member cash that they have by typing: !transfer <@MentionMember> <Amount>.
 <br>In the transfer action, normal players must pay taxes ( 10% ), but premium members don't have to pay taxes.
 
