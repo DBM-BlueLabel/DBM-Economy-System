@@ -24,6 +24,12 @@
 <b>↦ [NEW] Edit Cash:</b>
 <br>By typing !editcash <@MentionMember> <set|remove|add> <amount> you can edit the member's cash amount.
 
-<b>↦ [NEW] Steal System:</b>
-<br>By typing !steal <@MentionMember> you can steal cash from other member.
-<br>This system includes the premium system by the thief cut.
+<b>↦ [NEW] Jackpot System:</b>
+<br>Usage: [Prefix]jackpot <Prize Amount> <Entrance Cost> <Max Players to end>.
+<br>Members with the Premium Role will enjoy from no taxes in the prize, but members without the Premium Role the Jackpot will take 10% of the prize.
+
+<b>↦ [NEW] Thief System:</b>
+<br>Usage: `!thief <@MentonMember>`.
+<br>At the beginning, The thief will give the member alert that he has to pay 10,000 cash. 
+<br>After he paid to the thief, members with the Premium Role will enjoy from 30% chance to success the mission, the others will have to get by with 20%.
+<br>If the thief success, The command author will enjoy from the loot with the thief cut of 30%, but Premiums will enjoy from thief cut of only 10%.
