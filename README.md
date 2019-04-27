@@ -23,3 +23,7 @@
 
 <b>↦ [NEW] Edit Cash:</b>
 <br>By typing !editcash <@MentionMember> <set|remove|add> <amount> you can edit the member's cash amount.
+
+<b>↦ [NEW] Steal System:</b>
+<br>By typing !steal <@MentionMember> you can steal cash from other member.
+<br>This system includes the premium system by the thief cut.
