@@ -1,0 +1,413 @@
+{
+  "name": "Jackpot Reaction Added",
+  "temp": "reaction",
+  "event-type": "28",
+  "_id": "acYUa",
+  "actions": [
+    {
+      "reaction": "1",
+      "varName": "reaction",
+      "info": "7",
+      "storage": "1",
+      "varName2": "member",
+      "name": "Store Reaction Info"
+    },
+    {
+      "reaction": "1",
+      "varName": "reaction",
+      "info": "3",
+      "storage": "1",
+      "varName2": "reaction-name",
+      "name": "Store Reaction Info"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "info": "0",
+      "varName2": "",
+      "iftrue": "1",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "jackpot-message",
+      "comparison": "4",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Server Data"
+    },
+    {
+      "reaction": "1",
+      "varName": "reaction",
+      "info": "0",
+      "storage": "1",
+      "varName2": "messsage-object",
+      "name": "Store Reaction Info"
+    },
+    {
+      "message": "1",
+      "varName": "messsage-object",
+      "info": "1",
+      "storage": "1",
+      "varName2": "message-id",
+      "name": "Store Message Info"
+    },
+    {
+      "message": "1",
+      "varName": "messsage-object",
+      "info": "4",
+      "storage": "1",
+      "varName2": "message-channel",
+      "name": "Store Message Info"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "jackpot-message",
+      "comparison": "1",
+      "value": "tempVars(\"message-id\")",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Server Data"
+    },
+    {
+      "storage": "1",
+      "varName": "reaction-name",
+      "comparison": "1",
+      "value": "'💵'",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "jackpot-entry",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "jackpot-entry",
+      "name": "Store Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "jackpot-prize",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "prize",
+      "name": "Store Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "jackpot-max-players",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "max-players",
+      "name": "Store Server Data"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "dataName": "cash",
+      "comparison": "4",
+      "value": "tempVars(\"jackpot-entry\")",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "45",
+      "name": "Check Member Data"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "dataName": "cash",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "member-cash",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"member-cash\")}",
+      "info": "1",
+      "SecondNumber": "${tempVars(\"jackpot-entry\")}",
+      "storage": "1",
+      "varName": "set-cash",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"set-cash\")",
+      "name": "Control Member Data"
+    },
+    {
+      "title": "Member Joined!",
+      "author": "Jackpot",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "https://image.flaticon.com/icons/png/512/536/536101.png",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "join-embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "join-embed",
+      "message": "${tempVars(\"member\")} paid ${tempVars(\"jackpot-entry\")} cash and joined to the jackpot!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "join-embed",
+      "channel": "5",
+      "varName2": "message-channel",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "reaction": "1",
+      "varName": "reaction",
+      "info": "4",
+      "storage": "1",
+      "varName2": "reaction-count",
+      "name": "Store Reaction Info"
+    },
+    {
+      "FirstNumber": "${tempVars(\"reaction-count\")}",
+      "info": "1",
+      "SecondNumber": "1",
+      "storage": "1",
+      "varName": "members-reactions",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "members-reactions",
+      "comparison": "1",
+      "value": "tempVars(\"max-players\")",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "reaction": "1",
+      "varName": "reaction",
+      "info": "2",
+      "storage": "1",
+      "varName2": "reaction-list",
+      "name": "Store Reaction Info"
+    },
+    {
+      "list": "7",
+      "varName": "reaction-list",
+      "getType": "2",
+      "position": "",
+      "storage": "1",
+      "varName2": "random-member",
+      "name": "Get Item from List"
+    },
+    {
+      "member": "2",
+      "varName": "random-member",
+      "info": "1",
+      "storage": "1",
+      "varName2": "member-id",
+      "name": "Store Member Info"
+    },
+    {
+      "info": "0",
+      "find": "${tempVars(\"member-id\")}",
+      "storage": "1",
+      "varName": "member-won",
+      "name": "Find Member"
+    },
+    {
+      "member": "2",
+      "varName": "member-won",
+      "info": "0",
+      "varName2": "",
+      "iftrue": "2",
+      "iftrueVal": "22",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "info": "1",
+      "find": "Premium",
+      "storage": "1",
+      "varName": "premium-role",
+      "name": "Find Role"
+    },
+    {
+      "member": "2",
+      "varName": "member-won",
+      "role": "3",
+      "varName2": "premium-role",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "3",
+      "name": "Check If Member has Role"
+    },
+    {
+      "FirstNumber": "${tempVars(\"prize\")}",
+      "info": "2",
+      "SecondNumber": "1.0",
+      "storage": "1",
+      "varName": "prize-after-math",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "Tax",
+      "changeType": "0",
+      "value": "\"0% (Premium)\"",
+      "name": "Control Variable"
+    },
+    {
+      "count": "2",
+      "name": "Skip Actions"
+    },
+    {
+      "FirstNumber": "${tempVars(\"prize\")}",
+      "info": "2",
+      "SecondNumber": "0.9",
+      "storage": "1",
+      "varName": "prize-after-math",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "Tax",
+      "changeType": "0",
+      "value": "\"10%\"",
+      "name": "Control Variable"
+    },
+    {
+      "title": "Winner!",
+      "author": "Jackpot",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "https://image.flaticon.com/icons/png/512/536/536101.png",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "winner-embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "winner-embed",
+      "message": "${tempVars(\"random-member\")} won the jackpot!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "winner-embed",
+      "fieldName": "Prize",
+      "message": "${tempVars(\"prize\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "winner-embed",
+      "fieldName": "Tax",
+      "message": "${tempVars(\"Tax\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "winner-embed",
+      "fieldName": "Total Cash",
+      "message": "${Math.floor(tempVars(\"prize-after-math\"))}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "winner-embed",
+      "channel": "5",
+      "varName2": "message-channel",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "member": "2",
+      "varName": "member-won",
+      "dataName": "cash",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "winner-cash",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"winner-cash\")}",
+      "info": "0",
+      "SecondNumber": "${Math.floor(tempVars(\"prize-after-math\"))}",
+      "storage": "1",
+      "varName": "winner-set-cash",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "2",
+      "varName": "member-won",
+      "dataName": "cash",
+      "changeType": "0",
+      "value": "tempVars(\"winner-set-cash\")",
+      "name": "Control Member Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "jackpot-message",
+      "changeType": "0",
+      "value": "0",
+      "name": "Control Server Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "5",
+      "varName": "member",
+      "message": "I'm sorry, You don't have enough cash to entry to the jackpot.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "reaction": "1",
+      "varName": "reaction",
+      "member": "2",
+      "varName2": "member",
+      "name": "Remove Reaction"
+    }
+  ]
+}
