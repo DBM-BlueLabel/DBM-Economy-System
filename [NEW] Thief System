@@ -1,5 +1,5 @@
 {
-  "name": "steal",
+  "name": "thief",
   "permissions": "NONE",
   "restriction": "1",
   "_id": "txABf",
@@ -16,7 +16,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "2",
-      "iffalseVal": "56",
+      "iffalseVal": "57",
       "name": "Check Parameters"
     },
     {
@@ -33,7 +33,7 @@
       "comparison": "1",
       "value": "${msg.author.id}",
       "iftrue": "2",
-      "iftrueVal": "54",
+      "iftrueVal": "55",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -56,7 +56,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "2",
-      "iffalseVal": "58",
+      "iffalseVal": "59",
       "name": "Check Member Data"
     },
     {
@@ -77,7 +77,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "2",
-      "iffalseVal": "60",
+      "iffalseVal": "61",
       "name": "Check Member Data"
     },
     {
@@ -141,13 +141,13 @@
       "varName": "message",
       "filter": "user.id === '${msg.author.id}'",
       "max": "1",
-      "time": "60000",
+      "time": "10000",
       "maxEmojis": "",
       "maxUsers": "",
       "iftrue": "0",
       "iftrueVal": "",
-      "iffalse": "0",
-      "iffalseVal": "",
+      "iffalse": "2",
+      "iffalseVal": "63",
       "storage2": "1",
       "varName2": "reaction-list",
       "name": "Await Reaction Call Action"
@@ -192,7 +192,7 @@
       "comparison": "4",
       "value": "1",
       "iftrue": "2",
-      "iftrueVal": "46",
+      "iftrueVal": "52",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -246,17 +246,6 @@
       "name": "Comment"
     },
     {
-      "storage": "1",
-      "varName": "chance",
-      "comparison": "3",
-      "value": "30",
-      "iftrue": "3",
-      "iftrueVal": "6",
-      "iffalse": "2",
-      "iffalseVal": "45",
-      "name": "Check Variable"
-    },
-    {
       "FirstNumber": "${tempVars(\"cash-stealed\")}",
       "info": "2",
       "SecondNumber": "0.7",
@@ -272,6 +261,17 @@
       "name": "Control Variable"
     },
     {
+      "storage": "1",
+      "varName": "chance",
+      "comparison": "3",
+      "value": "20",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "2",
+      "iffalseVal": "45",
+      "name": "Check Variable"
+    },
+    {
       "comment": "Premium",
       "color": "#ff0000",
       "name": "Comment"
@@ -280,7 +280,7 @@
       "storage": "1",
       "varName": "chance",
       "comparison": "3",
-      "value": "40",
+      "value": "30",
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "2",
@@ -415,11 +415,19 @@
       "name": "Send Embed Message"
     },
     {
+      "FirstNumber": "${tempVars(\"member-cash\")}",
+      "info": "1",
+      "SecondNumber": "10000",
+      "storage": "1",
+      "varName": "lose-money",
+      "name": "Basic Math Operation"
+    },
+    {
       "member": "1",
       "varName": "",
       "dataName": "cash",
-      "changeType": "1",
-      "value": "-10000",
+      "changeType": "0",
+      "value": "tempVars(\"lose-money\")",
       "name": "Control Member Data"
     },
     {
@@ -481,6 +489,24 @@
       "channel": "0",
       "varName": "",
       "message": "${member}, ${mentionedUser} don't have enough money for that action.\nminimum 500 cash.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "message",
+      "name": "Delete Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member}, The message was deleted because you didn't reaction.",
       "storage": "0",
       "varName2": "",
       "iffalse": "0",
