@@ -92,7 +92,7 @@
       "comparison": "1",
       "value": "\"remove\"",
       "iftrue": "2",
-      "iftrueVal": "20",
+      "iftrueVal": "21",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -103,7 +103,7 @@
       "comparison": "1",
       "value": "\"set\"",
       "iftrue": "2",
-      "iftrueVal": "24",
+      "iftrueVal": "27",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -120,6 +120,17 @@
     },
     {
       "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "amount",
+      "comparison": "4",
+      "value": "0",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "36",
+      "name": "Check Variable"
     },
     {
       "FirstNumber": "${tempVars(\"money\")}",
@@ -144,18 +155,37 @@
       "name": "Set Embed Description"
     },
     {
-      "call": "26",
+      "call": "30",
       "name": "Jump to Action"
     },
     {
       "name": "End Action Sequence"
     },
     {
+      "storage": "1",
+      "varName": "amount",
+      "comparison": "4",
+      "value": "0",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "36",
+      "name": "Check Variable"
+    },
+    {
+      "FirstNumber": "${tempVars(\"money\")}",
+      "info": "1",
+      "SecondNumber": "${tempVars(\"amount\")}",
+      "storage": "1",
+      "varName": "amount-remove",
+      "name": "Basic Math Operation"
+    },
+    {
       "member": "0",
       "varName": "",
       "dataName": "cash",
       "changeType": "0",
-      "value": "tempVars(\"money\") - tempVars(\"amount\")",
+      "value": "tempVars(\"amount-remove\")",
       "name": "Control Member Data"
     },
     {
@@ -165,11 +195,22 @@
       "name": "Set Embed Description"
     },
     {
-      "call": "26",
+      "call": "30",
       "name": "Jump to Action"
     },
     {
       "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "amount",
+      "comparison": "4",
+      "value": "-1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "36",
+      "name": "Check Variable"
     },
     {
       "member": "0",
