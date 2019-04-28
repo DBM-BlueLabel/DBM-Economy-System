@@ -1,6 +1,6 @@
 <b>Change Log 28/04/2019</b>
 <br> -> Added Thief System & Jackpot System.
-<br> -> Fixed bugs in editcash: Moderators can set only numbers.
+<br> -> Fixed bugs in editcash: Moderators can set, add or remove only numbers.
 
 <b>Cash & Gamble System</b>
 <br>Hi everyone, Recently, I saw a lot of users asking for a points system with a gambling system. So, I decided to publish the <br>system I did a while ago, at the beginning of my way in DBM.
