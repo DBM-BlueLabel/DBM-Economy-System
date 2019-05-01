@@ -2,6 +2,9 @@
 <br> -> Added Thief System & Jackpot System.
 <br> -> Fixed bugs in editcash: Moderators can set, add or remove only numbers.
 
+<b>Change Log 02/05/2019</b>
+<br> -> Thief system update: Now there is a cooldown of 1 hours between the commands.
+
 <b>Cash & Gamble System</b>
 <br>Hi everyone, Recently, I saw a lot of users asking for a points system with a gambling system. So, I decided to publish the <br>system I did a while ago, at the beginning of my way in DBM.
 
