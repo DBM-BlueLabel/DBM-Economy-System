@@ -288,7 +288,7 @@
       "iftrue": "3",
       "iftrueVal": "4",
       "iffalse": "2",
-      "iffalseVal": "45",
+      "iffalseVal": "48",
       "name": "Check Variable"
     },
     {
