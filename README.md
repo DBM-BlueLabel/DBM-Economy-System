@@ -1,6 +1,5 @@
-<b>Change Log 28/04/2019</b>
-<br> -> Added Thief System & Jackpot System.
-<br> -> Fixed bugs in editcash: Moderators can set, add or remove only numbers.
+<b>Change Log 19/05/2019</b>
+<br> -> Fixed Bugs with the thief system.
 
 <b>Change Log 02/05/2019</b>
 <br> -> Thief system update: Now there is a cooldown of 1 hours between the commands.
