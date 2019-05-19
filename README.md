@@ -1,5 +1,6 @@
 <b>Change Log 19/05/2019</b>
 <br> -> Fixed Bugs with the thief system.
+<br> -> Fixed Bugs with the transfer command.
 
 <b>Change Log 02/05/2019</b>
 <br> -> Thief system update: Now there is a cooldown of 1 hours between the commands.
