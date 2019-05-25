@@ -1,0 +1,180 @@
+{
+  "name": "work",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "qhZdJ",
+  "actions": [
+    {
+      "message": "0",
+      "value": "7200",
+      "whattodo": "0",
+      "call": "21",
+      "storage": "1",
+      "varName": "time-left",
+      "source": "qhZdJ",
+      "name": "Set Time Restriction"
+    },
+    {
+      "storage": "1",
+      "varName": "work-list",
+      "name": "Create List"
+    },
+    {
+      "storage": "1",
+      "varName": "work-list",
+      "addType": "0",
+      "position": "",
+      "value": "\"Bodyguard\"",
+      "name": "Add Item to List"
+    },
+    {
+      "storage": "1",
+      "varName": "work-list",
+      "addType": "0",
+      "position": "",
+      "value": "\"Pizza Delivery Guy\"",
+      "name": "Add Item to List"
+    },
+    {
+      "storage": "1",
+      "varName": "work-list",
+      "addType": "0",
+      "position": "",
+      "value": "\"Personal Assistant\"",
+      "name": "Add Item to List"
+    },
+    {
+      "storage": "1",
+      "varName": "work-list",
+      "addType": "0",
+      "position": "",
+      "value": "\"Customer Service Representative\"",
+      "name": "Add Item to List"
+    },
+    {
+      "storage": "1",
+      "varName": "work-list",
+      "addType": "0",
+      "position": "",
+      "value": "\"Photo Designer\"",
+      "name": "Add Item to List"
+    },
+    {
+      "storage": "1",
+      "varName": "hourly-wage",
+      "min": "30",
+      "max": "100",
+      "name": "Generate Random Number"
+    },
+    {
+      "storage": "1",
+      "varName": "bonus",
+      "min": "500",
+      "max": "1500",
+      "name": "Generate Random Number"
+    },
+    {
+      "storage": "1",
+      "varName": "hours",
+      "min": "1",
+      "max": "12",
+      "name": "Generate Random Number"
+    },
+    {
+      "list": "7",
+      "varName": "work-list",
+      "getType": "2",
+      "position": "",
+      "storage": "1",
+      "varName2": "work",
+      "name": "Get Item from List"
+    },
+    {
+      "title": "Paycheck",
+      "author": "Work Manager",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "https://cdn3.iconfinder.com/data/icons/digital-marketing-3-1/512/149-512.png",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "work-embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "work-embed",
+      "message": "Hi ${member.displayName},\nYou worked as **${tempVars(\"work\")}**.\nYou worked for **${tempVars(\"hourly-wage\")}$** an hour and you worked a total **${tempVars(\"hours\")}** hours.\nTake a break from work for **2** hours.",
+      "name": "Set Embed Description"
+    },
+    {
+      "FirstNumber": "${tempVars(\"hourly-wage\")}",
+      "info": "2",
+      "SecondNumber": "${tempVars(\"hours\")}",
+      "storage": "1",
+      "varName": "wage",
+      "name": "Basic Math Operation"
+    },
+    {
+      "storage": "1",
+      "varName": "work-embed",
+      "fieldName": "Wage",
+      "message": "${tempVars(\"wage\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "work-embed",
+      "fieldName": "Bonus",
+      "message": "${tempVars(\"bonus\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "work-embed",
+      "fieldName": "Total Cash",
+      "message": "${tempVars(\"wage\")+tempVars(\"bonus\")} Cash",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "work-embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "cash",
+      "changeType": "1",
+      "value": "parseInt(tempVars(\"wage\")+tempVars(\"bonus\"))",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "time": "${tempVars(\"time-left\")}",
+      "storage": "1",
+      "varName": "time-left-convert",
+      "name": "Convert Seconds To D/H/M/S"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName}, You can't work right now you're in a break.\nTime left: **${tempVars(\"time-left-convert\")}**",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
