@@ -43,3 +43,7 @@
 <br>At the beginning, The thief will give the member alert that he has to pay 10,000 cash. 
 <br>After he paid to the thief, members with the Premium Role will enjoy from 30% chance to success the mission, the others will have to get by with 20%.
 <br>If the thief success, The command author will enjoy from the loot with the thief cut of 30%, but Premiums will enjoy from thief cut of only 10%.
+
+<b>↦ [NEW] Work System:</b>
+<br>Usage: `!work`
+<br>Another way to recieve cash every 2 hours. 
